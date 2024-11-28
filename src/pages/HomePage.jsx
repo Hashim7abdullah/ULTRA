@@ -10,7 +10,7 @@ const HomePage = () => {
   });
 
   // Parallax effect for the can
-  const canY = useTransform(scrollYProgress, [0, 1], ["29%", "150%"]);
+  const canY = useTransform(scrollYProgress, [0, 1], ["28%", "116%"]);
   const canScale = useTransform(scrollYProgress, [0, 1], [1, 1.2]);
   const canOpacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
 

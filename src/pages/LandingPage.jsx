@@ -6,7 +6,7 @@ const LandingPage = () => {
   return (
     <>
       <HomePage />
-      {/* <LaunchPage /> */}
+      <LaunchPage />
     </>
   );
 };

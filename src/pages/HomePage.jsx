@@ -1,91 +1,66 @@
-import React, { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { Link } from 'react-router-dom';
-import Hero from "../assets/file.png"
+import React, { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import Hero from "../assets/file.png";
 
 const HomePage = () => {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["start start", "end start"]
+    offset: ["start start", "end start"],
   });
 
-  // Create parallax effects for the can
-  const canY = useTransform(scrollYProgress, [0, 1], ["0%", "150%"]);
+  // Parallax effect for the can
+  const canY = useTransform(scrollYProgress, [0, 1], ["29%", "150%"]);
   const canScale = useTransform(scrollYProgress, [0, 1], [1, 1.2]);
   const canOpacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
 
   return (
     <div 
       ref={ref}
-      className="bg-black text-white relative"
+      className="h-screen w-full overflow-hidden relative flex items-center justify-center"
+      style={{
+        background: "linear-gradient(90deg, rgba(252,128,111,1) 0%, rgba(255,248,201,1) 100%)",
+        fontFamily: "'Orbitron', sans-serif"
+      }}
     >
-      {/* Hero Section - Full Viewport Height */}
-      <div className="h-screen w-full relative flex items-center justify-center overflow-hidden pt-16">
-        {/* Centered Energy Can */}
-        <motion.div 
+      {/* Centered Text */}
+      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center w-full px-4 z-10">
+        <h1 
+          className="text-[2rem] sm:text-[3rem] md:text-[5rem] lg:text-[10rem] font-bold uppercase tracking-[0.5em]"
           style={{
-            y: canY,
-            scale: canScale,
-            opacity: canOpacity,
-            position: 'absolute',
-            zIndex: 20
+            background: "linear-gradient(90deg, rgba(205,252,255,1) 39%, rgba(255,0,0,1) 67%)",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent"
           }}
-          className="absolute z-20 w-full max-w-md"
         >
-          <img 
-            src={Hero} 
-            alt="ULTRA Energy Drink"
-            className="w-full h-auto object-contain"
-          />
-        </motion.div>
-
-        {/* Text with Can Overlapping */}
-        <div className="relative z-10 text-center">
-          <h1 
-            className="text-6xl md:text-8xl lg:text-9xl font-bold uppercase tracking-tighter"
-            style={{
-              background: 'linear-gradient(to right, #00c6ff, #0072ff)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent'
-            }}
-          >
-            U
-            <span className="opacity-0">L</span>
-            T
-            <span className="opacity-0">R</span>
-            A
-          </h1>
-        </div>
+          {['U', 'L', 'T', 'R', 'A'].map((letter, index) => (
+            <span key={index} className="inline-block">{letter}</span>
+          ))}
+        </h1>
       </div>
 
-      {/* Launch Mode Section */}
-      <div className="h-screen w-full bg-black flex items-center justify-center relative">
-        <div className="text-center relative z-10">
-          <h2 
-            className="text-6xl md:text-8xl lg:text-9xl font-bold uppercase tracking-tighter"
-            style={{
-              background: 'linear-gradient(to right, #00c6ff, #0072ff)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent'
-            }}
-          >
-            LAUNCH
-          </h2>
-          <motion.div 
-            initial={{ rotate: 90, y: 100, opacity: 0 }}
-            animate={{ rotate: 0, y: 0, opacity: 1 }}
-            transition={{ duration: 1 }}
-            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-md"
-          >
-            <img 
-              src="https://www.pngkey.com/png/full/230-2302080_monster-energy-drink-can-png.png" 
-              alt="ULTRA Energy Drink"
-              className="w-full h-auto object-contain"
-            />
-          </motion.div>
-        </div>
-      </div>
+      {/* Animated Can Image */}
+      <motion.div
+        style={{
+          y: canY,
+          scale: canScale,
+          opacity: canOpacity,
+          position: "absolute",
+        //   bottom: 0,
+        //   left: "30%",
+          transform: "translateX(-50%)",
+          zIndex: 20,
+          width: "100%",
+          maxWidth: "32rem",
+          paddingBottom: "2rem"
+        }}
+      >
+        <img
+          src={Hero}
+          alt="ULTRA Energy Drink"
+          className="w-full h-screen object-contain"
+        />
+      </motion.div>
     </div>
   );
 };

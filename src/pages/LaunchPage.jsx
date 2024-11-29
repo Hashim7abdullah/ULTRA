@@ -44,6 +44,18 @@ const LaunchPage = () => {
 
       {/* Animated Can Image */}
       <motion.div
+      initial={{ y: "-30%", scale: 1, rotate: 0 }}
+      animate={{ 
+        y: 215, 
+        scale: 1, 
+        rotate: 0 
+      }}
+      transition={{ 
+        delay: 1,
+        type: "spring", 
+        stiffness: 60, 
+        damping: 20 
+      }}
         style={{
           y: canY,
           scale: canScale,

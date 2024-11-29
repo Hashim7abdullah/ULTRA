@@ -2,11 +2,11 @@ import React, { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Hero from "../assets/file.png";
 
-const HomePage = () => {
+const LaunchPage = () => {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["start end", "end start"], // Changed this line
+    offset: ["start end", "end start"],
   });
 
   // Parallax effect for the can
@@ -16,13 +16,14 @@ const HomePage = () => {
 
   return (
     <div
+      id="launch-page"  // Added this ID for navbar tracking
       ref={ref}
       className="h-screen w-full bg-black overflow-hidden relative flex items-center justify-center"
       style={{
-        // background: "linear-gradient(90deg, rgba(252,128,111,1) 0%, rgba(255,248,201,1) 100%)",
         fontFamily: "'Orbitron', sans-serif",
       }}
     >
+      {/* Rest of the component remains the same */}
       {/* Centered Text */}
       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center w-full px-4 z-10">
         <h1
@@ -66,4 +67,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default LaunchPage;

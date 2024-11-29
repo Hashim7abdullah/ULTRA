@@ -23,6 +23,24 @@ const HomePage = () => {
         fontFamily: "'Orbitron', sans-serif"
       }}
     >
+      {/* Bottom Gradient Overlay */}
+      <div 
+        className="absolute bottom-0 left-0 right-0 h-32 z-10"
+        style={{
+          background: 'linear-gradient(to top, rgba(252,128,111,0.8) 0%, rgba(255,248,201,0) 100%)',
+          pointerEvents: 'none'
+        }}
+      />
+
+      {/* Bottom Shadow Overlay */}
+      <div 
+        className="absolute bottom-0 left-0 right-0 h-16 z-10"
+        style={{
+          boxShadow: 'inset 0 -20px 30px -10px rgba(0,0,0,0.1)',
+          pointerEvents: 'none'
+        }}
+      />
+
       {/* Centered Text */}
       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center w-full px-4 z-10">
         <h1 
@@ -46,8 +64,6 @@ const HomePage = () => {
           scale: canScale,
           opacity: canOpacity,
           position: "absolute",
-        //   bottom: 0,
-        //   left: "30%",
           transform: "translateX(-50%)",
           zIndex: 20,
           width: "100%",

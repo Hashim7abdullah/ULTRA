@@ -41,10 +41,16 @@ const HomePage = () => {
         }}
       />
 
-      {/* Centered Text */}
-      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center w-full px-4 z-10">
+      {/* Centered ULTRA Text Box */}
+      <div 
+        className="absolute z-10 w-[70vw] h-[30vw] flex items-center justify-center rounded-xl shadow-2xl"
+        style={{
+          background: "linear-gradient(90deg, rgba(252,128,111,1) 0%, rgba(255,248,201,1) 100%)",
+          boxShadow: '0 25px 50px -12px rgba(0,0,0,0.25)'
+        }}
+      >
         <h1 
-          className="text-[2rem] sm:text-[3rem] md:text-[5rem] lg:text-[10rem] font-bold uppercase tracking-[0.5em]"
+          className="text-[2rem] sm:text-[3rem] md:text-[5rem] lg:text-[10rem] font-bold uppercase tracking-[0.5em] text-center"
           style={{
             background: "linear-gradient(90deg, rgba(205,252,255,1) 39%, rgba(255,0,0,1) 67%)",
             WebkitBackgroundClip: "text",
@@ -59,13 +65,25 @@ const HomePage = () => {
 
       {/* Animated Can Image */}
       <motion.div
+        initial={{ y: "-30%", scale: 1, rotate: 90 }}
+        animate={{ 
+          y: 215, 
+          scale: 1, 
+          rotate: 0 
+        }}
+        transition={{ 
+          delay: 1,
+          type: "spring", 
+          stiffness: 60, 
+          damping: 20 
+        }}
         style={{
           y: canY,
           scale: canScale,
           opacity: canOpacity,
           position: "absolute",
           transform: "translateX(-50%)",
-          zIndex: 20,
+          zIndex: 9,
           width: "100%",
           maxWidth: "32rem",
           paddingBottom: "2rem"

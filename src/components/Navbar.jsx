@@ -18,7 +18,7 @@ const Navbar = () => {
       const launchPage = document.getElementById('launch-page');
       if (launchPage) {
         const rect = launchPage.getBoundingClientRect();
-        const isLaunchPageTouching = rect.top <= 0;
+        const isLaunchPageTouching = rect.top <= 58;
 
         if (isLaunchPageTouching) {
           setNavbarStyle({

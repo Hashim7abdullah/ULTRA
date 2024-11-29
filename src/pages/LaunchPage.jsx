@@ -16,18 +16,17 @@ const LaunchPage = () => {
 
   return (
     <div
-      id="launch-page"  // Added this ID for navbar tracking
+      id="launch-page"
       ref={ref}
       className="h-screen w-full bg-black overflow-hidden relative flex items-center justify-center"
       style={{
         fontFamily: "'Orbitron', sans-serif",
       }}
     >
-      {/* Rest of the component remains the same */}
-      {/* Centered Text */}
-      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center w-full px-4 z-10">
+      {/* Centered Launch Text Box */}
+      <div className="absolute z-10 w-[70vw] h-[30vw] bg-black border border-white/20 rounded-xl shadow-2xl shadow-white/10 flex items-center justify-center">
         <h1
-          className="text-[2rem] sm:text-[3rem] md:text-[5rem] lg:text-[8rem] font-bold uppercase tracking-[0.5em]"
+          className="text-[2rem] sm:text-[3rem] md:text-[5rem] lg:text-[8rem] font-bold uppercase tracking-[0.5em] text-center"
           style={{
             background:
               "linear-gradient(90deg, rgba(255,214,0,1) 14%, rgba(205,252,255,1) 39%, rgba(160,141,0,1) 57%)",

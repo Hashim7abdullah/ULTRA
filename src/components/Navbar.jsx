@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { FaRocket, FaBars } from "react-icons/fa";
 import { motion } from "framer-motion";
 import Logo from "../assets/logo-transparent-svg.svg";
 
 const Navbar = () => {
+  const location = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [navbarStyle, setNavbarStyle] = useState({
     background: "linear-gradient(90deg, rgba(252,128,111,1) 0%, rgba(255,248,201,1) 100%)",
@@ -14,6 +15,17 @@ const Navbar = () => {
   });
 
   useEffect(() => {
+    // If not on homepage, set to black
+    if (location.pathname !== '/') {
+      setNavbarStyle({
+        background: "rgba(0,0,0,1)",
+        textColor: "text-white",
+        logoFilter: "brightness(200%)",
+        buttonBg: "rgba(255,255,255,0.2)"
+      });
+      return;
+    }
+
     const handleScroll = () => {
       const launchPage = document.getElementById('launch-page');
       if (launchPage) {
@@ -39,8 +51,9 @@ const Navbar = () => {
     };
 
     window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Initial check
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [location.pathname]);
 
   return (
     <motion.nav

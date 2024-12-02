@@ -3,9 +3,10 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import Hero from "../assets/file.png";
 import Button from "../components/Button";
 import { FaRocket } from "react-icons/fa";
-
+import { useNavigate } from "react-router-dom";
 
 const LaunchPage = () => {
+  const navigate = useNavigate();
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -16,6 +17,11 @@ const LaunchPage = () => {
   const canY = useTransform(scrollYProgress, [0, 1], ["-70%", "120%"]);
   const canScale = useTransform(scrollYProgress, [0, 1], [1, 1.2]);
   const canOpacity = useTransform(scrollYProgress, [0, 1], [1, 1]);
+
+  //navigation
+  const handleNavigate = () =>{
+    navigate("/main");
+  }
 
   return (
     <div
@@ -63,14 +69,15 @@ const LaunchPage = () => {
           ))}
         </h1>
         <div className="absolute bottom-8">
-        <Button
-          text="LAUNCH"
-          size="base"
-          bgColor="bg-yellow-400"
-          color="text-white"
-          borderRadius="rounded-lg"
-          icon={<FaRocket/>}
-        />
+          <Button
+            text="LAUNCH"
+            size="base"
+            bgColor=""
+            color="text-white"
+            borderRadius="rounded-lg"
+            icon={<FaRocket />}
+            onClick={handleNavigate}
+          />
         </div>
       </div>
 

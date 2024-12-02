@@ -1,14 +1,14 @@
-import React from "react";
-import HomePage from "./HomePage";
-import LaunchPage from "./LaunchPage";
+import React from 'react'
+import HomePage from './HomePage'
+import LaunchPage from './LaunchPage'
 
 const LandingPage = () => {
   return (
     <>
-      <HomePage />
-      <LaunchPage />
+    <HomePage/>
+    <LaunchPage/>
     </>
-  );
-};
+  )
+}
 
-export default LandingPage;
+export default LandingPage

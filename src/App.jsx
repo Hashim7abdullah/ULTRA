@@ -1,22 +1,45 @@
-import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Navbar from "./components/Navbar";
-import HomePage from "./pages/HomePage";
-import LaunchPage from "./pages/LaunchPage";
-import Footer from "./components/Footer";
-import LandingPage from "./pages/LandingPage";
+import React, { lazy, Suspense } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { motion } from 'framer-motion';
+
+// Lazy load components
+const Navbar = lazy(() => import('./components/Navbar'));
+const Footer = lazy(() => import('./components/Footer'));
+const LandingPage = lazy(() => import('./pages/LandingPage'));
+const HomePage = lazy(() => import('./pages/HomePage'));
+const LaunchPage = lazy(() => import('./pages/LaunchPage'));
+
+// Loading Spinner Component
+const LoadingSpinner = () => (
+  <div className="flex justify-center items-center h-screen">
+    <motion.div
+      animate={{ 
+        rotate: 360,
+        scale: [1, 1.2, 1]
+      }}
+      transition={{
+        duration: 1.5,
+        repeat: Infinity,
+        ease: "easeInOut"
+      }}
+      className="w-16 h-16 border-4 border-t-4 border-blue-500 rounded-full"
+    />
+  </div>
+);
 
 function App() {
   return (
     <Router>
       <div className="bg-black text-white min-h-screen">
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<LandingPage />} />
-          <Route path="/home-page" element={<HomePage />} />
-          <Route path="/launch" element={<LaunchPage />} />
-        </Routes>
-        <Footer />
+        <Suspense fallback={<LoadingSpinner />}>
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<LandingPage />} />
+            <Route path="/home-page" element={<HomePage />} />
+            <Route path="/launch" element={<LaunchPage />} />
+          </Routes>
+          <Footer />
+        </Suspense>
       </div>
     </Router>
   );

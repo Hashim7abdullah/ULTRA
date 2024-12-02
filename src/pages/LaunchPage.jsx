@@ -23,6 +23,25 @@ const LaunchPage = () => {
         fontFamily: "'Orbitron', sans-serif",
       }}
     >
+      {/* Top Gradient Overlay */}
+      <div
+        className="absolute top-0 left-0 right-0 h-32 z-10"
+        style={{
+          background:
+            "linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%)",
+          pointerEvents: "none",
+        }}
+      />
+
+      {/* Top Shadow Overlay */}
+      <div
+        className="absolute top-0 left-0 right-0 h-16 z-10"
+        style={{
+          boxShadow: "inset 0 20px 30px -10px rgba(255,255,255,0.1)",
+          pointerEvents: "none",
+        }}
+      />
+
       {/* Centered Launch Text Box */}
       <div className="absolute z-10 w-[70vw] h-[30vh] md:h-[30vw] bg-black border border-white/20 rounded-xl shadow-2xl shadow-white/10 flex items-center justify-center">
         <h1
@@ -44,18 +63,18 @@ const LaunchPage = () => {
 
       {/* Animated Can Image */}
       <motion.div
-      initial={{ y: "-30%", scale: 1, rotate: 0 }}
-      animate={{ 
-        y: 215, 
-        scale: 1, 
-        rotate: 0 
-      }}
-      transition={{ 
-        delay: 1,
-        type: "spring", 
-        stiffness: 60, 
-        damping: 20 
-      }}
+        initial={{ y: "-30%", scale: 1, rotate: 0 }}
+        animate={{ 
+          y: 215, 
+          scale: 1, 
+          rotate: 0 
+        }}
+        transition={{ 
+          delay: 1,
+          type: "spring", 
+          stiffness: 60, 
+          damping: 20 
+        }}
         style={{
           y: canY,
           scale: canScale,

@@ -1,6 +1,9 @@
 import React, { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Hero from "../assets/file.png";
+import Button from "../components/Button";
+import { FaRocket } from "react-icons/fa";
+
 
 const LaunchPage = () => {
   const ref = useRef(null);
@@ -43,7 +46,7 @@ const LaunchPage = () => {
       />
 
       {/* Centered Launch Text Box */}
-      <div className="absolute z-10 w-[70vw] h-[30vh] md:h-[30vw] bg-black border border-white/20 rounded-xl shadow-2xl shadow-white/10 flex items-center justify-center">
+      <div className="absolute z-10 w-[70vw] h-[40vh] md:h-[30vw] bg-black border border-white/20 rounded-xl shadow-2xl shadow-white/10 flex items-center justify-center flex-col">
         <h1
           className="text-[1.5rem] sm:text-[3rem] md:text-[4rem] lg:text-[6rem] font-bold uppercase tracking-[0.5em] text-center"
           style={{
@@ -59,21 +62,31 @@ const LaunchPage = () => {
             </span>
           ))}
         </h1>
+        <div className="absolute bottom-8">
+        <Button
+          text="LAUNCH"
+          size="base"
+          bgColor="bg-yellow-400"
+          color="text-white"
+          borderRadius="rounded-lg"
+          icon={<FaRocket/>}
+        />
+        </div>
       </div>
 
       {/* Animated Can Image */}
       <motion.div
         initial={{ y: "-30%", scale: 1, rotate: 0 }}
-        animate={{ 
-          y: 215, 
-          scale: 1, 
-          rotate: 0 
+        animate={{
+          y: 215,
+          scale: 1,
+          rotate: 0,
         }}
-        transition={{ 
+        transition={{
           delay: 1,
-          type: "spring", 
-          stiffness: 60, 
-          damping: 20 
+          type: "spring",
+          stiffness: 60,
+          damping: 20,
         }}
         style={{
           y: canY,

@@ -8,7 +8,7 @@ import {
 
 const Footer = () => {
   return (
-    <footer className="bg-black/80 text-white py-12 px-4">
+    <footer className="bg-black/80 text-white py-12 px-4 lg:py-20">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
         {/* Brand Section */}
         <div className="text-center md:text-left">
@@ -19,7 +19,7 @@ const Footer = () => {
         {/* Quick Links */}
         <div className="text-center">
           <h4 className="text-xl font-semibold mb-4">Quick Links</h4>
-          <nav className='flex items-center justify-between gap-2'>
+          <nav className="flex items-center justify-between gap-2">
             <a href="#" className="hover:text-blue-500">About</a>
             <a href="#" className="hover:text-blue-500">Flavors</a>
             <a href="#" className="hover:text-blue-500">Contact</a>

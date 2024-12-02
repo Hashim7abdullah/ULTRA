@@ -24,9 +24,9 @@ const LaunchPage = () => {
       }}
     >
       {/* Centered Launch Text Box */}
-      <div className="absolute z-10 w-[70vw] h-[30vw] bg-black border border-white/20 rounded-xl shadow-2xl shadow-white/10 flex items-center justify-center">
+      <div className="absolute z-10 w-[70vw] h-[30vh] md:h-[30vw] bg-black border border-white/20 rounded-xl shadow-2xl shadow-white/10 flex items-center justify-center">
         <h1
-          className="text-[2rem] sm:text-[3rem] md:text-[5rem] lg:text-[8rem] font-bold uppercase tracking-[0.5em] text-center"
+          className="text-[1.5rem] sm:text-[3rem] md:text-[4rem] lg:text-[6rem] font-bold uppercase tracking-[0.5em] text-center"
           style={{
             background:
               "linear-gradient(90deg, rgba(255,214,0,1) 14%, rgba(205,252,255,1) 39%, rgba(160,141,0,1) 57%)",
@@ -44,6 +44,18 @@ const LaunchPage = () => {
 
       {/* Animated Can Image */}
       <motion.div
+      initial={{ y: "-30%", scale: 1, rotate: 0 }}
+      animate={{ 
+        y: 215, 
+        scale: 1, 
+        rotate: 0 
+      }}
+      transition={{ 
+        delay: 1,
+        type: "spring", 
+        stiffness: 60, 
+        damping: 20 
+      }}
         style={{
           y: canY,
           scale: canScale,

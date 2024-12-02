@@ -22,7 +22,7 @@ const Navbar = () => {
 
         if (isLaunchPageTouching) {
           setNavbarStyle({
-            background: "rgba(0,0,0,0.8)",
+            background: "rgba(0,0,0,1)",
             textColor: "text-white",
             logoFilter: "brightness(200%)",
             buttonBg: "rgba(255,255,255,0.2)"

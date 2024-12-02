@@ -72,7 +72,7 @@ const HomePage = () => {
           {["U", "L", "T", "R", "A"].map((letter, index) => (
             <motion.span 
               key={index} 
-              className="inline-block"
+              className="inline-block transform transition-all duration-500 hover:scale-125 hover:rotate-12 hover:text-blue-500"
               initial={{ opacity: 0, y: 50 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{
@@ -80,6 +80,10 @@ const HomePage = () => {
                 duration: 0.4,
                 type: "spring",
                 stiffness: 100
+              }}
+              style={{
+                display: 'inline-block',
+                transformOrigin: 'center'
               }}
             >
               {letter}

@@ -85,7 +85,7 @@ const Main = () => {
           stiffness: 50,
           damping: 15,
           duration: 1.5,
-          delay: 1,
+          delay: 0.3,
         },
       },
     }),
@@ -99,8 +99,8 @@ const Main = () => {
         opacity: 1,
         x: 0,
         transition: {
-          duration: 1.5,
-          ease: "easeInOut",
+          duration: 0.8,
+          ease: "linear",
         },
       },
     }),
@@ -111,19 +111,18 @@ const Main = () => {
   const divVariants = useMemo(
     () => [
       {
-        initial: { opacity: 0, scale: 0.7, x: "-100%" },
+        initial: { opacity: 0, scale: 0.7, rotate: -20 },
         animate: {
-          x: "0",
           opacity: 1,
           scale: 1,
           rotate: 0,
           transition: {
-            duration: 1,
-            delay: 1,
+            duration: 0.7,
+            delay: 0.2,
             type: "spring",
           },
         },
-        className: "col-span-2 row-span-2  p-6 rounded-xl",
+        className: "col-span-2 row-span-2 bg-yellow-600 p-6 rounded-xl",
       },
       {
         initial: { opacity: 0, y: 50 },
@@ -131,23 +130,25 @@ const Main = () => {
           opacity: 1,
           y: 0,
           transition: {
-            duration: 1,
-            delay: 1.5,
+            duration: 0.5,
+            delay: 0.4,
           },
         },
-        className: "col-span-1 row-span-1  p-4 rounded-xl",
+        className: "col-span-1 row-span-1 bg-yellow-600 p-4 rounded-xl",
       },
       {
-        initial: { opacity: 0, y: 50 },
+        initial: { opacity: 0, scale: 0.5, rotate: 45 },
         animate: {
           opacity: 1,
-          y: 0,
+          scale: 1,
+          rotate: 0,
           transition: {
-            duration: 1,
-            delay: 0.5,
+            duration: 0.6,
+            delay: 0.3,
+            type: "spring",
           },
         },
-        className: "col-span-1 row-span-2  p-5 rounded-xl",
+        className: "col-span-1 row-span-2 bg-yellow-600 p-5 rounded-xl",
       },
       {
         initial: { opacity: 0, filter: "blur(10px)" },
@@ -155,63 +156,62 @@ const Main = () => {
           opacity: 1,
           filter: "blur(0px)",
           transition: {
-            duration: 1,
-            delay: 1,
+            duration: 0.7,
+            delay: 0.5,
           },
         },
-        className: "col-span-1 row-span-2  p-4 rounded-xl",
+        className: "col-span-1 row-span-2 bg-yellow-600 p-4 rounded-xl",
       },
       {
-        initial: { opacity: 0, x: 100 },
+        initial: { opacity: 0, x: -100 },
         animate: {
           opacity: 1,
           x: 0,
           transition: {
-            duration: 0.8,
-            delay: 1,
+            duration: 0.6,
+            delay: 0.6,
           },
         },
-        className: "col-span-2 row-span-1  p-5 rounded-xl",
+        className: "col-span-2 row-span-1 bg-yellow-600 p-5 rounded-xl",
       },
       {
-        initial: { opacity: 0, scale: 0.3 , x:"-100"},
+        initial: { opacity: 0, scale: 0.3 },
         animate: {
           opacity: 1,
           scale: 1,
-          x:"0",
           transition: {
             type: "spring",
-            stiffness: 200,
-            damping: 30,
-            delay: 1.2,
+            stiffness: 260,
+            damping: 20,
+            delay: 0.7,
           },
         },
-        className: "col-span-1 row-span-1  p-3 rounded-xl",
+        className: "col-span-1 row-span-1 bg-yellow-600 p-3 rounded-xl",
       },
       {
-        initial: { opacity: 0, x: 100 },
+        initial: { opacity: 0, x: 100, y: -100 },
         animate: {
           opacity: 1,
           x: 0,
+          y: 0,
           transition: {
             duration: 0.7,
-            delay: 1.5,
+            delay: 0.8,
           },
         },
-        className: "col-span-1 row-span-1  p-4 rounded-xl",
+        className: "col-span-1 row-span-1 bg-yellow-600 p-4 rounded-xl",
       },
       {
-        initial: { opacity: 0, y:"-100" },
+        initial: { opacity: 0, rotate: 180 },
         animate: {
           opacity: 1,
           rotate: 0,
-          y:"0",
           transition: {
             duration: 0.6,
-            delay: 1,
+            delay: 0.9,
           },
         },
-        className: "col-span-1 row-span-2  p-5 rounded-xl",
+        className: "col-span-1 row-span-2 bg-yellow-600 p-5 rounded-xl",
       },
       {
         initial: { opacity: 0, scale: 0.6 },
@@ -220,10 +220,10 @@ const Main = () => {
           scale: 1,
           transition: {
             duration: 0.5,
-            delay: 0.2,
+            delay: 1,
           },
         },
-        className: "col-span-1 row-span-1  p-4 rounded-xl",
+        className: "col-span-1 row-span-1 bg-yellow-600 p-4 rounded-xl",
       },
     ],
     []
@@ -237,18 +237,14 @@ const Main = () => {
         className: "col-span-2 row-span-2 bg-white p-6 rounded-xl",
         content: (
           <div className="w-full h-full flex flex-col justify-center items-center text-center text-black">
-            <h3 className="text-lg md:text-3xl lg:text-5xl font-bold mb-4">Performance Metrics</h3>
+            <h3 className="text-3xl font-bold mb-4">Performance Metrics</h3>
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <p className="text-xs md:text-sm lg:text-lg font-semibold">
-                  +250%
-                </p>
+                <p className="text-2xl font-semibold">+250%</p>
                 <p>Yearly Growth</p>
               </div>
               <div>
-                <p className="text-xs md:text-sm lg:text-lg font-semibold">
-                  1M+
-                </p>
+                <p className="text-2xl font-semibold">1M+</p>
                 <p>Active Users</p>
               </div>
             </div>
@@ -260,20 +256,20 @@ const Main = () => {
         className: "col-span-1 row-span-1 bg-white p-4 rounded-xl",
         content: (
           <div className="w-full h-full flex flex-col justify-center items-center text-center text-black">
-            <h4 className="text-base md:text-xl lg:text-3xl font-bold mb-2">HUREYYY</h4>
-            <p className="text-xs md:text-sm lg:text-lg">
-              ENERGY BEYOND LIMITS
+            <h4 className="text-xl font-bold mb-2">Quick Insights</h4>
+            <p className="text-sm">
+              Innovative solutions driving digital transformation
             </p>
           </div>
         ),
       },
       {
         type: "image",
-        className: "col-span-1 row-span-2   rounded-xl",
+        className: "col-span-1 row-span-2 bg-white p-5 rounded-xl",
         content: (
           <div className="w-full h-full flex justify-center items-center">
             <img
-              src={File}
+              src={image}
               alt="Product Preview"
               className="max-w-full max-h-full object-contain rounded-lg"
             />
@@ -285,12 +281,12 @@ const Main = () => {
         className: "col-span-1 row-span-2 bg-white p-4 rounded-xl",
         content: (
           <div className="w-full h-full flex flex-col justify-center items-center text-center text-black">
-            <h4 className="text-base md:text-xl lg:text-3xl font-bold mb-4">Revenue Trend</h4>
+            <h4 className="text-xl font-bold mb-4">Revenue Trend</h4>
             <div className="w-full h-2/3 bg-white/30 rounded-lg flex items-end justify-around p-2">
-              <div className="w-8 bg-red-400 h-1/2 rounded"></div>
-              <div className="w-8 bg-green-500 h-3/4 rounded"></div>
-              <div className="w-8 bg-blue-500 h-2/3 rounded"></div>
-              <div className="w-8 bg-yellow-400 h-4/5 rounded"></div>
+              <div className="w-8 bg-black/70 h-1/2 rounded"></div>
+              <div className="w-8 bg-black/70 h-3/4 rounded"></div>
+              <div className="w-8 bg-black/70 h-2/3 rounded"></div>
+              <div className="w-8 bg-black/70 h-4/5 rounded"></div>
             </div>
           </div>
         ),
@@ -300,10 +296,10 @@ const Main = () => {
         className: "col-span-2 row-span-1 bg-white p-5 rounded-xl",
         content: (
           <div className="w-full h-full flex flex-col justify-center items-center text-center text-black">
-            <p className="italic mb-2 text-base md:text-lg lg:text-xl">
-              "Energy beyond limits"
+            <p className="italic mb-2 text-lg">
+              "A game-changing platform that revolutionizes our approach"
             </p>
-            <p className="font-semibold">- Hashim Abdullah, CEO of ULTRA</p>
+            <p className="font-semibold">- Jane Doe, CEO of InnovateTech</p>
           </div>
         ),
       },
@@ -334,32 +330,19 @@ const Main = () => {
         type: "contact",
         className: "col-span-1 row-span-1 bg-white p-4 rounded-xl",
         content: (
-          <div className="w-full h-full flex flex-col justify-center items-center text-center tracking-tighter text-black">
-            <h4 className="text-lg font-bold mb-2">Contact</h4>
-            <p className="text-xs md:text-sm lg:text-lg">ultras@.co</p>
-            <p className="text-xs md:text-sm lg:text-lg">+91 888889999</p>
+          <div className="w-full h-full flex flex-col justify-center items-center text-center text-black">
+            <h4 className="text-xl font-bold mb-2">contact</h4>
+            <p className="text-sm">support@example.com</p>
+            <p className="text-sm">+1 (555) 123-4567</p>
           </div>
         ),
       },
       {
         type: "logo",
-        className: "col-span-1 row-span-2 bg-black p-5 rounded-xl",
+        className: "col-span-1 row-span-2 bg-white p-5 rounded-xl",
         content: (
           <div className="w-full h-full flex justify-center items-center">
-            <div className="text-2xl md:text-4xl lg:text-6xl font-bold ">
-              <p
-                style={{
-                  background:
-                    "linear-gradient(90deg, rgba(205,252,255,1) 20%, rgba(255,0,0,1) 29%)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  transition:
-                    "opacity 0.9s cubic-bezier(0.17, 0.55, 0.55, 1), transform 0.9s cubic-bezier(0.17, 0.55, 0.55, 1)",
-                }}
-              >
-                ULTRA
-              </p>
-            </div>
+            <div className="text-5xl font-bold text-black">BRAND</div>
           </div>
         ),
       },
@@ -378,8 +361,7 @@ const Main = () => {
               strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
-              className="text-blue-600"
-            
+              className="text-black"
             >
               <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
             </svg>
@@ -393,7 +375,7 @@ const Main = () => {
               strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
-              className="text-pink-600"
+              className="text-black"
             >
               <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
               <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />

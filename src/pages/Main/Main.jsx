@@ -4,6 +4,8 @@ import Ads from "../../assets/Main/Ads.png";
 import File from "../../assets/Main/file.jpg";
 import Button from "../../components/Button";
 import image from "../../assets/Main/image.jpg";
+import File1 from "../../assets/Main/file1.jpg";
+import { useNavigate } from "react-router-dom";
 
 const AnimatedText = React.memo(() => {
   const controls = useAnimation();
@@ -63,6 +65,12 @@ const AnimatedText = React.memo(() => {
 
 const Main = () => {
   const [isLaunched, setIsLaunched] = useState(false);
+
+  const navigate = useNavigate();
+
+  const handleHome = () => {
+    navigate("/");
+  };
 
   // Memoize animation configurations to prevent unnecessary re-renders
   const imageAnimation = useMemo(
@@ -174,11 +182,11 @@ const Main = () => {
         className: "col-span-2 row-span-1  p-5 rounded-xl",
       },
       {
-        initial: { opacity: 0, scale: 0.3 , x:"-100"},
+        initial: { opacity: 0, scale: 0.3, x: "-100" },
         animate: {
           opacity: 1,
           scale: 1,
-          x:"0",
+          x: "0",
           transition: {
             type: "spring",
             stiffness: 200,
@@ -201,11 +209,11 @@ const Main = () => {
         className: "col-span-1 row-span-1  p-4 rounded-xl",
       },
       {
-        initial: { opacity: 0, y:"-100" },
+        initial: { opacity: 0, y: "-100" },
         animate: {
           opacity: 1,
           rotate: 0,
-          y:"0",
+          y: "0",
           transition: {
             duration: 0.6,
             delay: 1,
@@ -237,7 +245,9 @@ const Main = () => {
         className: "col-span-2 row-span-2 bg-white p-6 rounded-xl",
         content: (
           <div className="w-full h-full flex flex-col justify-center items-center text-center text-black">
-            <h3 className="text-lg md:text-3xl lg:text-5xl font-bold mb-4">Performance Metrics</h3>
+            <h3 className="text-lg md:text-3xl lg:text-5xl font-bold mb-4">
+              Performance Metrics
+            </h3>
             <div className="grid grid-cols-2 gap-4">
               <div>
                 <p className="text-xs md:text-sm lg:text-lg font-semibold">
@@ -260,7 +270,9 @@ const Main = () => {
         className: "col-span-1 row-span-1 bg-white p-4 rounded-xl",
         content: (
           <div className="w-full h-full flex flex-col justify-center items-center text-center text-black">
-            <h4 className="text-base md:text-xl lg:text-3xl font-bold mb-2">HUREYYY</h4>
+            <h4 className="text-base md:text-xl lg:text-3xl font-bold mb-2">
+              HUREYYY
+            </h4>
             <p className="text-xs md:text-sm lg:text-lg">
               ENERGY BEYOND LIMITS
             </p>
@@ -285,7 +297,9 @@ const Main = () => {
         className: "col-span-1 row-span-2 bg-white p-4 rounded-xl",
         content: (
           <div className="w-full h-full flex flex-col justify-center items-center text-center text-black">
-            <h4 className="text-base md:text-xl lg:text-3xl font-bold mb-4">Revenue Trend</h4>
+            <h4 className="text-base md:text-xl lg:text-3xl font-bold mb-4">
+              Revenue Trend
+            </h4>
             <div className="w-full h-2/3 bg-white/30 rounded-lg flex items-end justify-around p-2">
               <div className="w-8 bg-red-400 h-1/2 rounded"></div>
               <div className="w-8 bg-green-500 h-3/4 rounded"></div>
@@ -356,6 +370,7 @@ const Main = () => {
                   transition:
                     "opacity 0.9s cubic-bezier(0.17, 0.55, 0.55, 1), transform 0.9s cubic-bezier(0.17, 0.55, 0.55, 1)",
                 }}
+                onClick={handleHome}
               >
                 ULTRA
               </p>
@@ -379,7 +394,6 @@ const Main = () => {
               strokeLinecap="round"
               strokeLinejoin="round"
               className="text-blue-600"
-            
             >
               <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
             </svg>
@@ -424,15 +438,6 @@ const Main = () => {
       <div className="w-full max-w-[1300px] mx-auto bg-black border border-white/20 rounded-xl shadow-2xl shadow-white/10 relative">
         {!isLaunched ? (
           <div className="flex flex-col md:flex-row">
-            <div className="w-full md:w-1/2 h-[50vh] md:h-[70vh] overflow-hidden">
-              <img
-                className="w-full h-full object-cover rounded-xl"
-                src={File}
-                alt=""
-                loading="lazy"
-              />
-            </div>
-
             <motion.div
               className="w-full md:w-1/2 h-[50vh] md:h-[70vh] overflow-hidden"
               initial={imageAnimation.initial}
@@ -452,10 +457,18 @@ const Main = () => {
               bgColor="white/10"
               color="text-white"
               borderRadius="rounded-xl"
-              border="border border-white/20"
+              border="border border-white"
               onClick={handleLaunch}
               className="absolute bottom-4 left-1/2 transform -translate-x-1/2"
             />
+            <div className="w-full md:w-1/2 h-[50vh] md:h-[70vh] overflow-hidden">
+              <img
+                className="w-full h-full object-cover rounded-xl"
+                src={image}
+                alt=""
+                loading="lazy"
+              />
+            </div>
           </div>
         ) : (
           <AnimatePresence mode="wait">

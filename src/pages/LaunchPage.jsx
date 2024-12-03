@@ -111,6 +111,7 @@ const LaunchPage = () => {
           src={Hero}
           alt="ULTRA Energy Drink"
           className="w-full h-screen object-contain"
+          loading="lazy"
         />
       </motion.div>
     </div>

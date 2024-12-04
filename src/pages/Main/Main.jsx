@@ -4,7 +4,6 @@ import Ads from "../../assets/Main/Ads.png";
 import File from "../../assets/Main/file.jpg";
 import Button from "../../components/Button";
 import image from "../../assets/Main/image.jpg";
-import File1 from "../../assets/Main/file1.jpg";
 import { useNavigate } from "react-router-dom";
 
 const AnimatedText = React.memo(() => {

@@ -7,9 +7,8 @@ const Navbar = lazy(() => import("./components/Navbar"));
 const Footer = lazy(() => import("./components/Footer"));
 const LandingPage = lazy(() => import("./pages/LandingPage"));
 const HomePage = lazy(() => import("./pages/HomePage"));
-const LaunchPage = lazy(() => import("./pages/LaunchPage"));
-const MainPage = lazy(() => import("./pages/Main/Main"));
-const VarientsPage = lazy(() => import("./pages/Varients"));
+const VarientsPage = lazy(() => import("./pages/Main/Varientslaunch"));
+
 
 // Loading Spinner Component
 const LoadingSpinner = () => (
@@ -38,9 +37,7 @@ function App() {
           <Routes>
             <Route path="/" element={<LandingPage />} />
             <Route path="/home-page" element={<HomePage />} />
-            <Route path="/launch" element={<LaunchPage />} />
-            <Route path="/main" element={<MainPage />} />
-            <Route path="/varients" element={<VarientsPage />} />
+            <Route path="/main" element={<VarientsPage />} />
           </Routes>
           <Footer />
         </Suspense>

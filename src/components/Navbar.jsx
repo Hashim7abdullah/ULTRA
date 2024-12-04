@@ -98,7 +98,7 @@ const Navbar = () => {
           }}
           className={`hidden md:flex items-center space-x-2 px-4 py-2 rounded-full hover:scale-105 transition-transform ${navbarStyle.textColor}`}
         >
-          <Link to="/launch" className="flex items-center">
+          <Link to={"/main"} className="flex items-center">
             Launch Mode <FaRocket className="ml-2" />
           </Link>
         </motion.div>

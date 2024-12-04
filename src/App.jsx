@@ -1,27 +1,28 @@
-import React, { lazy, Suspense } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import React, { lazy, Suspense } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { motion } from "framer-motion";
 
 // Lazy load components
-const Navbar = lazy(() => import('./components/Navbar'));
-const Footer = lazy(() => import('./components/Footer'));
-const LandingPage = lazy(() => import('./pages/LandingPage'));
-const HomePage = lazy(() => import('./pages/HomePage'));
-const LaunchPage = lazy(() => import('./pages/LaunchPage'));
-const MainPage = lazy(() => import('./pages/Main/Main'));
+const Navbar = lazy(() => import("./components/Navbar"));
+const Footer = lazy(() => import("./components/Footer"));
+const LandingPage = lazy(() => import("./pages/LandingPage"));
+const HomePage = lazy(() => import("./pages/HomePage"));
+const LaunchPage = lazy(() => import("./pages/LaunchPage"));
+const MainPage = lazy(() => import("./pages/Main/Main"));
+const VarientsPage = lazy(() => import("./pages/Varients"));
 
 // Loading Spinner Component
 const LoadingSpinner = () => (
   <div className="flex justify-center items-center h-screen">
     <motion.div
-      animate={{ 
+      animate={{
         rotate: 360,
-        scale: [1, 1.2, 1]
+        scale: [1, 1.2, 1],
       }}
       transition={{
         duration: 1.5,
         repeat: Infinity,
-        ease: "easeInOut"
+        ease: "easeInOut",
       }}
       className="w-16 h-16 border-4 border-t-4 border-blue-500 rounded-full"
     />
@@ -39,6 +40,7 @@ function App() {
             <Route path="/home-page" element={<HomePage />} />
             <Route path="/launch" element={<LaunchPage />} />
             <Route path="/main" element={<MainPage />} />
+            <Route path="/varients" element={<VarientsPage />} />
           </Routes>
           <Footer />
         </Suspense>

@@ -8,25 +8,24 @@ import { useNavigate } from "react-router-dom";
 const LaunchPage = () => {
   const navigate = useNavigate();
   const ref = useRef(null);
+
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "end start"],
   });
 
-  // Parallax effect for the can
   const canY = useTransform(scrollYProgress, [0, 1], ["-70%", "120%"]);
   const canScale = useTransform(scrollYProgress, [0, 1], [1, 1.2]);
   const canOpacity = useTransform(scrollYProgress, [0, 1], [1, 1]);
 
-  //navigation
-  const handleNavigate = () =>{
+  const handleNavigate = () => {
     navigate("/main");
-  }
+  };
 
   return (
     <div
-      id="launch-page"
       ref={ref}
+      data-scroll-section
       className="h-screen w-full bg-black overflow-hidden relative flex items-center justify-center"
       style={{
         fontFamily: "'Orbitron', sans-serif",
@@ -41,7 +40,6 @@ const LaunchPage = () => {
           pointerEvents: "none",
         }}
       />
-
       {/* Top Shadow Overlay */}
       <div
         className="absolute top-0 left-0 right-0 h-16 z-10"
@@ -50,7 +48,6 @@ const LaunchPage = () => {
           pointerEvents: "none",
         }}
       />
-
       {/* Centered Launch Text Box */}
       <div className="absolute z-10 w-[70vw] h-[40vh] md:h-[30vw] bg-black border border-white/20 rounded-xl shadow-2xl shadow-white/10 flex items-center justify-center flex-col">
         <h1
@@ -80,7 +77,6 @@ const LaunchPage = () => {
           />
         </div>
       </div>
-
       {/* Animated Can Image */}
       <motion.div
         initial={{ y: "-30%", scale: 1, rotate: 0 }}
@@ -113,7 +109,7 @@ const LaunchPage = () => {
           className="w-full h-screen object-contain"
           loading="lazy"
         />
-      </motion.div>
+      </motion.div>{" "}
     </div>
   );
 };

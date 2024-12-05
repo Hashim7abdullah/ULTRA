@@ -8,7 +8,7 @@ const Navbar = () => {
   const location = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [navbarStyle, setNavbarStyle] = useState({
-    background: "linear-gradient(90deg, rgba(252,128,111,1) 0%, rgba(255,248,201,1) 100%)",
+    background: "rgba(0,0,0,1)",
     textColor: "text-black",
     logoFilter: "",
     buttonBg: "linear-gradient(0deg, rgba(212,231,231,1) 1%, rgba(214,219,219,1) 52%, rgba(202,206,209,1) 100%)"
@@ -41,7 +41,7 @@ const Navbar = () => {
           });
         } else {
           setNavbarStyle({
-            background: "linear-gradient(90deg, rgba(252,128,111,1) 0%, rgba(255,248,201,1) 100%)",
+            background: "rgba(0,0,0,1)",
             textColor: "text-black",
             logoFilter: "",
             buttonBg: "linear-gradient(0deg, rgba(212,231,231,1) 1%, rgba(214,219,219,1) 52%, rgba(202,206,209,1) 100%)"

@@ -1,17 +1,10 @@
 import React, { useRef, useMemo, useCallback, Suspense } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown } from "lucide-react";
-
-// Lazy load images
-import REDcola from "../../assets/Animate/new.jpg";
+import REDcola from "../assets/Animate/new.jpg";
 
 const RedColaVariant = React.memo(() => {
-  const nextSectionRef = useRef(null);
-
-  // Memoized scroll function
-  const scrollToNextSection = useCallback(() => {
-    nextSectionRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, []);
+  const containerRef = useRef(null);
 
   // Memoized container animation variants
   const containerVariants = useMemo(
@@ -30,9 +23,10 @@ const RedColaVariant = React.memo(() => {
 
   return (
     <Suspense fallback={<div>Loading...</div>}>
-      {/* First Section */}
       <AnimatePresence>
         <motion.div
+          ref={containerRef}
+          data-scroll-section
           className="w-full min-h-screen flex items-center justify-center px-4 py-16 mt-16 md:mt-0 relative"
           initial="hidden"
           animate="visible"
@@ -113,24 +107,7 @@ const RedColaVariant = React.memo(() => {
               </motion.div>
             </div>
           </motion.div>
-
-          {/* Scroll Arrow */}
-          <motion.div
-            className="hidden md:block absolute bottom-10 left-1/2 transform -translate-x-1/2 cursor-pointer"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{
-              opacity: 1,
-              y: 0,
-              transition: {
-                repeat: Infinity,
-                duration: 1,
-                repeatType: "reverse",
-              },
-            }}
-            onClick={scrollToNextSection}
-          >
-            <ChevronDown color="white" size={48} className="animate-bounce" />
-          </motion.div>
+          
         </motion.div>
       </AnimatePresence>
     </Suspense>

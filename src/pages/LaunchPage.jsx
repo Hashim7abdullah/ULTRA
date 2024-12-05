@@ -49,7 +49,7 @@ const LaunchPage = () => {
         }}
       />
       {/* Centered Launch Text Box */}
-      <div className="absolute z-10 w-[70vw] h-[40vh] md:h-[30vw] bg-black border border-white/20 rounded-xl shadow-2xl shadow-white/10 flex items-center justify-center flex-col">
+      <div className="absolute z-10 w-[70vw] h-[50vh] md:h-[30vw] bg-black border border-white/20 rounded-xl shadow-2xl shadow-white/10 flex items-center justify-center flex-col">
         <h1
           className="text-[1.5rem] sm:text-[3rem] md:text-[4rem] lg:text-[6rem] font-bold uppercase tracking-[0.5em] text-center"
           style={{

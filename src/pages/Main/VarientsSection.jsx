@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import red1 from "../../assets/Animate/red.jpg"
 import black1 from "../../assets/Animate/Sugarfree.jpg"
@@ -32,6 +32,9 @@ const colaVariants = [
 ];
 
 const VariantSection = ({ variant }) => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const ref = useRef(null);
   const isInView = useInView(ref, { 
     once: false,

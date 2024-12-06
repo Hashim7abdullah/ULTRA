@@ -67,6 +67,10 @@ const Main = () => {
 
   const navigate = useNavigate();
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const handleHome = () => {
     navigate("/");
   };

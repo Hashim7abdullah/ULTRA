@@ -27,7 +27,7 @@ const AboutUs = React.memo(() => {
 
 
   const handleChange = () => {
-    navigate("/sections")
+    navigate("/about-us-sections")  
   }
 
   return (

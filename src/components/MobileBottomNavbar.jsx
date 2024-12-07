@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { FaHome, FaRocket, FaBars, FaCompass } from "react-icons/fa";
+import { FaHome, FaRocket, FaBars, FaCompass, FaUser } from "react-icons/fa";
 import { motion } from "framer-motion";
 
 const MobileBottomNavbar = () => {
@@ -19,6 +19,10 @@ const MobileBottomNavbar = () => {
     {
       icon: <FaRocket />,
       path: "/main",
+    },
+    {
+      icon: <FaUser />,
+      path: "/login",
     },
     {
       icon: <FaBars />,
